@@ -1,1 +1,1 @@
-# data-structures-with-c-
+# datastruct
