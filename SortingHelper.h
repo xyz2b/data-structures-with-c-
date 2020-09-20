@@ -3,6 +3,8 @@
 
 #include "SelectionSort/SelectionSort.h"
 #include "InsertionSort/InsertionSort.h"
+#include "MergeSort/MergeSort.h"
+#include "Exception.h"
 
 #include <ctime>
 #include <iomanip>
@@ -27,20 +29,32 @@ public:
     static void sortTest(string sortname, T* arr, int len) {
         clock_t start_time = clock();
         if(sortname == "SelectionSort") {
-            SelectionSort<int>::sort(arr, len);
+            SelectionSort<T>::sort(arr, len);
         } else if (sortname == "SelectionSort2") {
-            SelectionSort<int>::sort2(arr, len);
+            SelectionSort<T>::sort2(arr, len);
         } else if (sortname == "InsertionSort") {
-            InsertionSort<int>::sort(arr, len);
+            InsertionSort<T>::sort(arr, len);
         } else if (sortname == "InsertionSort2") {
-            InsertionSort<int>::sort2(arr, len);
+            InsertionSort<T>::sort2(arr, len);
         } else if (sortname == "InsertionSort3") {
-            InsertionSort<int>::sort3(arr, len);
+            InsertionSort<T>::sort3(arr, len);
+        } else if (sortname == "MergeSort") {
+            MergeSort<T>::sort(arr, len);
+        } else if (sortname == "MergeSort2") {
+            MergeSort<T>::sort2(arr, len);
+        } else if (sortname == "MergeSort3") {
+            MergeSort<T>::sort3(arr, len);
+        } else if (sortname == "MergeSort4") {
+            MergeSort<T>::sort4(arr, len);
+        } else if (sortname == "MergeSortBU") {
+            MergeSort<T>::sortBU(arr, len);
+        } else if (sortname == "MergeSortBU2") {
+            MergeSort<T>::sortBU2(arr, len);
         }
         clock_t end_time = clock();
 
-        if(!SortingHelper<int>::isSorted(arr, len))
-            throw sortname + " failed";
+        if(!SortingHelper<T>::isSorted(arr, len))
+            throw Exception(sortname + " failed", __FILE__, __LINE__, __PRETTY_FUNCTION__);
 
         cout << fixed << setprecision(10) << sortname << ", n = " << len << ", time: " << (end_time - start_time)/(double)CLOCKS_PER_SEC <<  " s" << endl;
     }

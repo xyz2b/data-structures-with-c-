@@ -9,6 +9,8 @@ private:
     InsertionSort() {};
 public:
     static void sort(T* data, int len);
+    static void sort(T* data, int len, int l, int r);
+
     static void sort2(T* data, int len);
     static void sort3(T* data, int len);
 
@@ -41,6 +43,20 @@ InsertionSort<T>::sort(T* data, int len) {
         T t = data[i];
         int j;
         for(j = i; j > 0 && t < data[j-1]; --j)
+            data[j] = data[j - 1];
+        data[j] = t;
+    }
+}
+
+template <class T>
+inline void
+InsertionSort<T>::sort(T* data, int len, int l, int r) {
+    /* 循环不变量：arr[0...i) 是有序的；arr[i...n) 是无序的 */
+    for(int i = l; i <= r; ++i) {
+        /* 将data[i]插入到合适的位置 */
+        T t = data[i];
+        int j;
+        for(j = i; j > l && t < data[j-1]; --j)
             data[j] = data[j - 1];
         data[j] = t;
     }

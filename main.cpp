@@ -16,6 +16,9 @@
 #include "Stack/LinkedListStack.h"
 #include "Queue/LinkedListQueue.h"
 #include "leetcode/sum.h"
+#include "Recursion/Sum.h"
+#include "leetcode/removeLinkedListElements.h"
+#include "MergeSort/MergeSort.h"
 
 #include <ctime>
 #include <iomanip>
@@ -32,8 +35,6 @@ int main(){
 
     // int n = 10;
     // int* data = ArrayGenerator::generateOrderedArray(n);
-
-    // LinearSearch* ls  = new LinearSearch();
 
     // int res = LinearSearch<int>::search(16, data, sizeof(data)/sizeof(data[0]));
     // cout << res << endl;
@@ -339,12 +340,87 @@ int main(){
     //     cout << queue->dequeue() << endl;
     // }
 
-    sumSolution s = sumSolution();
+    // sumSolution s = sumSolution();
 
-    int data[10] = {0, 1, 2, 3, 4, 5, 6, 7, 9};
+    // int data[10] = {0, 1, 2, 3, 4, 5, 6, 7, 9};
 
-    cout << s.sum(data, 10) << endl;
+    // cout << s.sum(data, 10) << endl;
+
+
+    // int data[10] = {0, 1, 2, 3, 4, 5, 6, 7, 9};
+
+    // cout << SumR::sum(data, 10) << endl;
     
+
+    // int data[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+    // Node<int>* n = new Node<int>(data, 10);
+
+    // cout << n << endl;
+
+    // RemoveElementsSolution<int>::removeElement(n, 2, 0);
+
+    // cout << n << endl;
+
+
+    // LinkedList<int>* listR = new LinkedList<int>();
+    // for(int i = 0; i < 12; ++i)
+    //     listR->addR(i, i);
+    // cout << *listR << endl;
+
+    // listR->addR(5, 100);
+    // cout << *listR << endl;
+
+    // LinkedList<int>* list = new LinkedList<int>();
+    // for(int i = 0; i < 12; ++i)
+    //     list->add(i, i);
+    // cout << *list << endl;
+    // list->addR(5, 100);
+    // list->addR(0, 100);
+    // cout << *list << endl;
+
+    // cout << list->getR(5) << endl;
+    // list->setR(5,10000);
+    // cout << list->getR(5) << endl;
+    // cout << *list << endl;
+
+
+    // cout << list->removeR(5) << endl;
+    // cout << *list << endl;
+
+    // cout << list->removeR(11) << endl;
+    // cout << *list << endl;
+
+    // cout << list->removeR(0) << endl;
+    // cout << *list << endl;
+
+    // list->removeElement(1);
+    // cout << *list << endl;
+
+    // int arr[10] = {3, 5, 6, 1, 0, 10, 7, 0, 9, 0};
+
+    // MergeSort<int>::sort(arr, 10);
+
+    // for(int i : arr) {
+    //     cout << i << ", ";
+    // }
+
+    // cout << endl;
+
+    int n[3] = {1000, 10000, 100000};
+    for(int i : n) {
+        cout << "Random Array" << endl;
+        int* data = ArrayGenerator::generateRandomArray(i, i);
+        // int* data = ArrayGenerator::generateOrderedArray(i);
+        int* data2 = ArrayGenerator::copyArray(data, i);
+        int* data3 = ArrayGenerator::copyArray(data, i);
+        // SortingHelper<int>::sortTest("MergeSort", data, i);
+        // SortingHelper<int>::sortTest("MergeSort2", data2, i);
+        // SortingHelper<int>::sortTest("MergeSort3", data3, i);
+        // SortingHelper<int>::sortTest("MergeSort4", data3, i);
+        SortingHelper<int>::sortTest("MergeSortBU", data2, i);
+        SortingHelper<int>::sortTest("MergeSortBU2", data3, i);
+    }
     return 0;
 }
 

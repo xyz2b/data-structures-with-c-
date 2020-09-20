@@ -1,6 +1,9 @@
 #ifndef DATASTRUCT_ARRAYGENERATOR_H
 #define DATASTRUCT_ARRAYGENERATOR_H
 #include <cstdlib>
+#include <cstring>
+
+using namespace std;
 
 class ArrayGenerator
 {
@@ -11,6 +14,8 @@ public:
     static int* generateOrderedArray(int n);
     
     static int* generateRandomArray(int n, int bound);
+
+    static int* copyArray(int* arr, int length);
 
     // ~ArrayGenerator() {delete []arr;}
 };
@@ -34,6 +39,15 @@ ArrayGenerator::generateRandomArray(int n, int bound) {
     }
 
     return arr;
+}
+
+inline int*
+ArrayGenerator::copyArray(int* arr, int length) {
+    int* arrNew = new int[length];
+
+    memcpy(arrNew, arr, sizeof(int) * length);
+
+    return arrNew;
 }
 
 #endif /* DATASTRUCT_ARRAYGENERATOR_H */

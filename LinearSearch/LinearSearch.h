@@ -5,7 +5,7 @@ template <class T>
 class LinearSearch
 {
 private:
-    LinearSearch() {};
+    LinearSearch() {}
 public:
     static int search(T target, T* data, int len);
     // {
